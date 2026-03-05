@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="header-icon">🔗</div>
+                <h1>URL Shortener</h1>
+                <p class="subtitle">Enter a long URL to make it short and memorable.</p>
+            </div>
+
+            <form id="shorten-form">
+                <div class="input-group">
+                    <label for="long-url">Long URL</label>
+                    <span class="input-icon">🌍</span>
+                    <input type="url" id="long-url" placeholder="https://example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="expires-in">Expires in (days) <span class="optional">(Optional)</span></label>
+                    <span class="input-icon">⏱️</span>
+                    <input type="number" id="expires-in" min="1" placeholder="7">
+                </div>
+
+                <button type="submit" id="submit-btn">
+                    <span class="btn-text">Shorten URL</span>
+                    <div class="spinner hidden" id="loading-spinner"></div>
+                </button>
+            </form>
+
+            <div id="result-container" class="hidden">
+                <div class="success-message">Successfully shortened!</div>
+                <div class="result-box">
+                    <a href="#" id="short-url-link" target="_blank"
+                        rel="noopener noreferrer">http://localhost:8000/abc123</a>
+                    <div class="action-buttons">
+                        <button id="copy-btn" class="icon-btn" title="Copy to clipboard" type="button">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="error-message" class="hidden error-text"></div>
+        </div>
+
+        <div class="footer-links">
+            <a href="stats.html">View Analytics</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
